@@ -15,11 +15,10 @@
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "jshint",
     "lint:sass": "stylelint ./src/**/*.scss",
-    "start": "webpack-dev-server",
     "test": "jest --watch --coverage",
     "build": "cross-env NODE_ENV=production webpack --config prod.webpack.config.js --color --progress",
     "server-build": "webpack --config server.webpack.config.js --progress",
-    "server": "rimraf dist && npm run build && npm run server-build && node dist/server.js"
+    "start": "rimraf dist && npm run build && npm run server-build && node dist/server.js"
   },
   "dependencies": {
     "babel": "^6.23.0",
@@ -61,33 +60,7 @@
     "stylelint-webpack-plugin": "^0.8.0",
     "webpack": "^3.1.0",
     "webpack-dev-server": "^2.5.1",
-    "whatwg-fetch": "^2.0.3"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "jsx"
-    ],
-    "transform": {
-      "^.+\\.(js|jsx)$": "<rootDir>/config/jest/jest.preprocessor.js"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
-    ],
-    "testRegex": "/__tests__/.*\\.(js|jsx)$",
-    "moduleDirectories": [
-      "node_modules"
-    ],
-    "moduleNameMapper": {
-      "^.+\\.(css|scss)$": "identity-obj-proxy",
-      "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/config/jest/fileMock.js"
-    },
-    "globals": {
-      "DEVELOPMENT": false,
-      "FAKE_SERVER": false
-    }
-  },
-  "devDependencies": {
+    "whatwg-fetch": "^2.0.3",
     "babel-plugin-es6-promise": "^1.1.1",
     "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
     "babel-plugin-transform-react-inline-elements": "^6.22.0",
@@ -101,5 +74,10 @@
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^3.0.2",
     "ignore-loader": "^0.1.2"
+  },
+  "main": "/dist/server.js",
+  "engines": {
+    "node": "7.1.0",
+    "npm": "3.10.9"
   }
 }
