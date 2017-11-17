@@ -16,6 +16,8 @@ function fetchItems(params){
 
 export function* fetchItemsCall(action) {
   const isLoader = action.payload.isLoader != undefined ? action.payload.isLoader : true;
+
+  console.log(action);
   
    try {
       const params = action.payload.params;
@@ -65,14 +67,14 @@ export function* searchSaga() {
 
 export default function* root() {
   yield [
-    cardsSaga,
-    langVarsSaga,
-    peopleSaga,
-    specCardSaga,
-    articleSaga,
-    specPeopleSaga,
-    searchSaga,
-    dropdownsSaga
+    fork(cardsSaga),
+    fork(langVarsSaga),
+    fork(peopleSaga),
+    fork(specCardSaga),
+    fork(articleSaga),
+    fork(specPeopleSaga),
+    fork(searchSaga),
+    fork(dropdownsSaga)
   ]
 }
 

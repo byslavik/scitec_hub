@@ -34,7 +34,6 @@ class Header extends React.Component {
     componentWillReceiveProps(nextProps){
       if(this.props.pageTitle != nextProps.pageTitle) {
         if(document && nextProps.pageTitle){
-          console.log(nextProps.pageTitle);
           document.title = nextProps.pageTitle;
         }
       }

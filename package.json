@@ -16,6 +16,7 @@
     "lint:js": "jshint",
     "lint:sass": "stylelint ./src/**/*.scss",
     "test": "jest --watch --coverage",
+    "dev": "webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack --config prod.webpack.config.js --color --progress",
     "server-build": "webpack --config server.webpack.config.js --progress",
     "start": "rimraf dist && npm run build && npm run server-build && node dist/server.js"
